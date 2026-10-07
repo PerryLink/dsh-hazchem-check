@@ -1,0 +1,45 @@
+import { describeTablePlugin } from './table-plugin-suite.ts'
+import { Config } from '../src/config.ts'
+import { parseMaterial, runCheck, SPEC } from '../src/model.ts'
+import { buildView } from '../src/view.ts'
+import { inject, name, resolvePackageFile, TOOL_NAME } from '../src/index.ts'
+
+describeTablePlugin({
+  name,
+  inject,
+  TOOL_NAME,
+  resolvePackageFile,
+  Config,
+  rulesFile: 'rules/hazchem-check.yaml',
+  parseMaterial,
+  runCheck,
+  buildView,
+  columnNames: SPEC.columns,
+  samples: {
+    good: {
+          "company": "某某化工有限公司",
+          "site": "某某厂区",
+          "assessmentAt": "2026-03-01",
+          "basis": "GB 18218—2018 与 2025 年版危险化学品目录",
+          "rows": [
+                {
+                      "序号": "1",
+                      "化学品名称": "甲醇",
+                      "CAS号": "67-56-1",
+                      "危险货物编号": "32058",
+                      "危险性类别": "易燃液体",
+                      "状态": "液态",
+                      "储存位置": "罐区 T-01",
+                      "最大储存量": "80",
+                      "计量单位": "t",
+                      "临界量": "500",
+                      "是否重大危险源": "否",
+                      "安全技术说明书编号": "SDS-2026-0018",
+                      "许可证号": "某某危化经字〔2026〕018 号",
+                      "保管人": "李工"
+                }
+          ]
+    },
+    unknownColumn: { rows: [{ 备注: '甲' }] },
+  },
+})

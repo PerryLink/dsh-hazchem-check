@@ -1,0 +1,21 @@
+{
+  "ruleId": "HZ-002",
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "HZ-002-compliant.json",
+      "expect": {
+        "ruleId": "HZ-002",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "HZ-002-unsafe.json",
+      "expect": {
+        "ruleId": "HZ-002",
+        "count": 1
+      }
+    }
+  ]
+}
