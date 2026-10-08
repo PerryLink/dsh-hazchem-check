@@ -1,4 +1,27 @@
-# dsh-hazchem-check
+# dsh-hazchem-check — Registo de produtos químicos perigosos e verificação da identificação de fontes de perigo maior
+
+`dsh-hazchem-check` lê um registo de produtos químicos perigosos com o seu registo de identificação de fontes de perigo maior —o cabeçalho do local mais uma linha por substância— e verifica a completude e a aritmética interna desse registo: se cada substância traz nome e classe de perigo, se a quantidade armazenada é analisável como número, se há um limiar registado, se o veredicto de «fonte de perigo maior» concorda com a relação entre a quantidade armazenada e o limiar que o próprio registo declara, se cada substância armazenada tem número de ficha de dados de segurança, se não há números CAS repetidos, se o cabeçalho declara a base de identificação e se não resta nenhum marcador de modelo no nome.
+
+## O que ele responde
+
+| Você pergunta | O que ele responde |
+|---|---|
+| O registo diz «否», mas a quantidade armazenada excede o limiar escrito ao lado — isso é detetado? | Sim. `HZ-003` compara os dois números que o próprio registo contém e assinala a linha quando o veredicto não concorda com eles. Não decide se a unidade constitui realmente uma fonte de perigo maior. |
+| Uma linha não tem limiar. Isso é reportado? | Sim. `HZ-004` exige que a coluna do limiar esteja preenchida em todas as linhas. Verifica que exista um valor, não que seja o valor correto para essa substância — um `0` passa. |
+| O nome está preenchido, mas a classe de perigo está vazia. | `HZ-001` exige ambos em cada linha e assinala a linha à qual falta um deles. Não julga se a classe está correta. |
+| A quantidade está escrita como `1,500 kg` — ainda é lida? | Sim. `HZ-002` toma a parte numérica e só reporta uma quantidade que não consegue analisar. Não verifica se o valor é real nem se foi tomado no máximo de projeto. |
+| Que linhas têm de trazer número de ficha de dados de segurança? | `HZ-006`: todas as linhas com quantidade armazenada. A regra verifica que o número está preenchido, não que a ficha esteja completa ou corresponda a essa substância. |
+| O mesmo número CAS aparece duas vezes, em dois armazéns. | `HZ-007` reporta um número CAS repetido, porque prejudica tanto a deduplicação como o total das quantidades. Uma substância repartida por armazéns é uma forma legítima: distinga-a na coluna de localização ou desative a regra. Sem coluna CAS, a regra reporta que não pôde ser executada em vez de passar em silêncio. |
+
+## Normas que segue
+
+| Documento | Número | Regras que o citam |
+|---|---|---|
+| 《危险化学品安全管理条例》 | 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行） | HZ-001, HZ-006, HZ-008 |
+| 《危险化学品重大危险源辨识》 | 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行） | HZ-002, HZ-003, HZ-004 |
+| 《危险化学品重大危险源辨识》 | GB 18218—2018（2018-11-19发布，2019-03-01实施；全部技术内容为强制性；代替GB 18218—2009） | HZ-002, HZ-003 |
+| 《危险化学品重大危险源辨识》 | GB 18218—2018（本次未取得条文） | HZ-005 |
+| 《危险化学品安全管理条例》 | 国务院令第591号（本次未取得条文） | HZ-007 |
 
 **Boundary:** this plugin checks a **危险化学品台账与重大危险源辨识记录** for completeness and arithmetic — that
 each chemical names itself and its hazard class, that the stored quantity parses, that a threshold is recorded,

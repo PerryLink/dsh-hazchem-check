@@ -1,4 +1,27 @@
-# dsh-hazchem-check
+# dsh-hazchem-check — Hazardous chemical register and major hazard source identification check
+
+`dsh-hazchem-check` reads one hazardous-chemical register with its major-hazard-source identification record — the site header plus one row per substance — and checks that register's own completeness and arithmetic: that each substance carries a name and a hazard class, that the stored quantity parses as a number, that a threshold is recorded, that the “major hazard source” verdict agrees with how the stored quantity compares with the threshold the register itself states, that a stored substance records its safety data sheet number, that no CAS number is repeated, that the header declares the identification basis, and that no template placeholder survives in the name column.
+
+## What it answers
+
+| You ask | What it answers |
+|---|---|
+| The register says “no”, but the stored quantity is above the threshold written beside it — is that caught? | Yes. `HZ-003` compares the two numbers the register itself carries and reports the row when the verdict disagrees with them. It does not decide whether the unit really is a major hazard source. |
+| A row has no threshold at all. Does the check say anything? | Yes. `HZ-004` requires the threshold column to be filled on every row. It checks that a value is present, not that it is the right value for that substance — a `0` passes. |
+| The chemical name is filled in but the hazard class is blank. | `HZ-001` requires both on each row and reports the row missing either one. It does not judge whether the class is correct. |
+| The quantity column reads `1,500 kg` — will that still be read? | Yes. `HZ-002` takes the numeric part; only a quantity it cannot parse is reported. Whether the figure is true, or taken at the design maximum, is not checked. |
+| Which rows must carry a safety data sheet number? | `HZ-006`: every row that has a stored quantity. The rule checks that the number is filled in, not that the sheet is complete or belongs to that substance. |
+| The same CAS number appears twice, in two warehouses. | `HZ-007` reports a repeated CAS number, because it defeats both de-duplication and the quantity total. One substance split across warehouses is a legitimate shape: distinguish it in the storage-location column, or disable the rule. With no CAS column the rule reports that it could not run instead of passing silently. |
+
+## Standards it follows
+
+| Document | Number | Cited by rules |
+|---|---|---|
+| 《危险化学品安全管理条例》 | 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行） | HZ-001, HZ-006, HZ-008 |
+| 《危险化学品重大危险源辨识》 | 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行） | HZ-002, HZ-003, HZ-004 |
+| 《危险化学品重大危险源辨识》 | GB 18218—2018（2018-11-19发布，2019-03-01实施；全部技术内容为强制性；代替GB 18218—2009） | HZ-002, HZ-003 |
+| 《危险化学品重大危险源辨识》 | GB 18218—2018（本次未取得条文） | HZ-005 |
+| 《危险化学品安全管理条例》 | 国务院令第591号（本次未取得条文） | HZ-007 |
 
 **Boundary:** this plugin checks a **危险化学品台账与重大危险源辨识记录** for completeness and arithmetic — that
 each chemical names itself and its hazard class, that the stored quantity parses, that a threshold is recorded,
