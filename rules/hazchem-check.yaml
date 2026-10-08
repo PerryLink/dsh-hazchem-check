@@ -53,11 +53,11 @@ rules:
     severity: warn
     basis:
       document: 《危险化学品安全管理条例》
-      number: 国务院令第591号（本次未取得条文）
-      clause: 关于危险化学品登记与台账的条款（本次未取得条号）
-      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      number: 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行）
+      clause: 第二十五条第一款——储存单位应当建立危险化学品出入库核查、登记制度
+      excerpt: 储存危险化学品的单位应当建立危险化学品出入库核查、登记制度。对剧毒化学品以及储存数量构成重大危险源的其他危险化学品，储存单位应当将其储存数量、储存地点以及管理人员的情况，报所在地县级人民政府安全生产监督管理部门（在港区内储存的，报港口行政管理部门）和公安机关备案。
       kind: derived-from-principle
-      source: https://www.gov.cn/
+      source: https://www.gov.cn/zhengce/2011-03/11/content_2602576.htm
     params:
         check:
           kind: presenceAny
@@ -73,11 +73,17 @@ rules:
     severity: warn
     basis:
       document: 《危险化学品重大危险源辨识》
-      number: GB 18218—2018（本次未取得条文）
-      clause: 关于实际存在量与临界量的条款（本次未取得条号）
-      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      number: 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行）
+      clause: 第二十五条第二款——构成重大危险源的，应当将储存数量、储存地点及管理人员情况报安监部门与公安机关备案
+      excerpt: 储存危险化学品的单位应当建立危险化学品出入库核查、登记制度。对剧毒化学品以及储存数量构成重大危险源的其他危险化学品，储存单位应当将其储存数量、储存地点以及管理人员的情况，报所在地县级人民政府安全生产监督管理部门（在港区内储存的，报港口行政管理部门）和公安机关备案。
       kind: derived-from-principle
-      source: https://gf.cabr-fire.com/m/article-27761.htm
+      source: https://www.gov.cn/zhengce/2011-03/11/content_2602576.htm
+      alsoBasis:
+        - document: 《危险化学品重大危险源辨识》
+          number: GB 18218—2018（2018-11-19发布，2019-03-01实施；全部技术内容为强制性；代替GB 18218—2009）
+          clause: 4.2.2——实际存在量按设计最大量确定
+          excerpt: 危险化学品储罐以及其他容器、设备或仓储区的危险化学品的实际存在量按设计最大量确定。
+          source: http://gf.cabr-fire.com/m/article-27762.htm
     params:
         check:
           kind: number
@@ -93,11 +99,17 @@ rules:
     severity: warn
     basis:
       document: 《危险化学品重大危险源辨识》
-      number: GB 18218—2018（本次未取得条文）
-      clause: 关于重大危险源判定的条款（本次未取得条号）
-      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      number: 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行）
+      clause: 第十九条末款——重大危险源的定义（数量等于或者超过临界量的单元）
+      excerpt: 本条例所称重大危险源，是指生产、储存、使用或者搬运危险化学品，且危险化学品的数量等于或者超过临界量的单元（包括场所和设施）。
       kind: derived-from-principle
-      source: https://gf.cabr-fire.com/m/article-27761.htm
+      source: https://www.gov.cn/zhengce/2011-03/11/content_2602576.htm
+      alsoBasis:
+        - document: 《危险化学品重大危险源辨识》
+          number: GB 18218—2018（2018-11-19发布，2019-03-01实施；全部技术内容为强制性；代替GB 18218—2009）
+          clause: 4.2.1——数量等于或超过表 1、表 2 规定的临界量即定为重大危险源
+          excerpt: 生产单元、储存单元内存在危险化学品的数量等于或超过表 1、表 2 规定的临界量，即被定为重大危险源。
+          source: http://gf.cabr-fire.com/m/article-27762.htm
     params:
         check:
           kind: thresholdCompare
@@ -122,11 +134,11 @@ rules:
     severity: warn
     basis:
       document: 《危险化学品重大危险源辨识》
-      number: GB 18218—2018（本次未取得条文）
-      clause: 关于临界量的条款（本次未取得条号）
-      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      number: 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行）
+      clause: 第十九条末款——临界量是本制度的核心量
+      excerpt: 本条例所称重大危险源，是指生产、储存、使用或者搬运危险化学品，且危险化学品的数量等于或者超过临界量的单元（包括场所和设施）。
       kind: derived-from-principle
-      source: https://gf.cabr-fire.com/m/article-27761.htm
+      source: https://www.gov.cn/zhengce/2011-03/11/content_2602576.htm
     params:
         check:
           kind: presence
@@ -163,11 +175,11 @@ rules:
     severity: warn
     basis:
       document: 《危险化学品安全管理条例》
-      number: 国务院令第591号（本次未取得条文）
-      clause: 关于安全技术说明书与安全标签的条款（本次未取得条号）
-      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      number: 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行）
+      clause: 第十五条——化学品安全技术说明书及其内容应当符合国家标准的要求
+      excerpt: 危险化学品生产企业应当提供与其生产的危险化学品相符的化学品安全技术说明书，并在危险化学品包装（包括外包装件）上粘贴或者拴挂与包装内危险化学品相符的化学品安全标签。化学品安全技术说明书和化学品安全标签所载明的内容应当符合国家标准的要求。
       kind: derived-from-principle
-      source: https://www.gov.cn/
+      source: https://www.gov.cn/zhengce/2011-03/11/content_2602576.htm
     params:
         check:
           kind: conditionalPresence
@@ -208,11 +220,11 @@ rules:
     severity: warn
     basis:
       document: 《危险化学品安全管理条例》
-      number: 国务院令第591号（本次未取得条文）
-      clause: 关于危险化学品台账内容的条款（本次未取得条号）
-      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      number: 国务院令第591号（2002年1月26日国务院令第344号公布，2011年2月16日国务院第144次常务会议修订通过，自2011年12月1日起施行）
+      clause: 第二十五条——出入库核查、登记制度，且构成重大危险源的须备案
+      excerpt: 储存危险化学品的单位应当建立危险化学品出入库核查、登记制度。对剧毒化学品以及储存数量构成重大危险源的其他危险化学品，储存单位应当将其储存数量、储存地点以及管理人员的情况，报所在地县级人民政府安全生产监督管理部门（在港区内储存的，报港口行政管理部门）和公安机关备案。
       kind: derived-from-principle
-      source: https://www.gov.cn/
+      source: https://www.gov.cn/zhengce/2011-03/11/content_2602576.htm
     params:
         check:
           kind: containsAny
