@@ -56,8 +56,7 @@ whether it is a major hidden danger.
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./*.tgz
+dsh plugin --profile <name> add dsh-hazchem-check
 dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
 ```
 
