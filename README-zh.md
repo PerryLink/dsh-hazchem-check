@@ -1,6 +1,14 @@
 # dsh-hazchem-check — 危险化学品台账与重大危险源辨识核对
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-hazchem-check` 读取一份危险化学品台账与重大危险源辨识记录——表头加每种化学品一行——核对这份台账自身的齐备与算术：化学品名称与危险性类别是否填写、储存量是否可解析为数值、是否记录了临界量、「是否重大危险源」的判定是否与台账自己写的储存量和临界量的关系相符、有储存量的是否记录了安全技术说明书编号、CAS 号是否重复、表头是否声明辨识依据、品名栏是否残留模板占位符。
+
+## 实际输出长什么样
+
+![Terminal demo of dsh-hazchem-check: real output over its HZ-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-hazchem-check/main/docs/assets/dsh-hazchem-check-demo.png)
+
+本插件对自己 `HZ-002` 测试夹具的**真实输出**，不是示意图。规则库不伪造引文，因此每条发现都会同时写明所引条款，以及该条款原文本次未取得。
 
 ## 它回答什么问题
 

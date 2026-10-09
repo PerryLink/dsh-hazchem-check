@@ -1,6 +1,14 @@
 # dsh-hazchem-check — Registro de productos químicos peligrosos y verificación de la identificación de fuentes de peligro mayor
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-hazchem-check` lee un registro de productos químicos peligrosos con su identificación de fuentes de peligro mayor —la cabecera del emplazamiento más una fila por sustancia— y comprueba la completitud y la aritmética interna de ese registro: que cada sustancia lleve nombre y clase de peligro, que la cantidad almacenada se pueda analizar como número, que haya un umbral registrado, que el veredicto de «fuente de peligro mayor» concuerde con la relación entre la cantidad almacenada y el umbral que el propio registro declara, que toda sustancia almacenada tenga número de ficha de datos de seguridad, que no se repita ningún número CAS, que la cabecera declare su base de identificación y que no quede ningún marcador de plantilla en el nombre.
+
+## Cómo se ve la salida
+
+![Terminal demo of dsh-hazchem-check: real output over its HZ-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-hazchem-check/main/docs/assets/dsh-hazchem-check-demo.png)
+
+Salida real de este plugin sobre su propio fixture de prueba `HZ-002` — no es un montaje. El paquete de reglas no inventa citas, así que cada hallazgo nombra la cláusula aplicada y advierte que su texto no se obtuvo.
 
 ## Qué responde
 
