@@ -4,6 +4,13 @@
 
 `dsh-hazchem-check` lê um registo de produtos químicos perigosos com o seu registo de identificação de fontes de perigo maior —o cabeçalho do local mais uma linha por substância— e verifica a completude e a aritmética interna desse registo: se cada substância traz nome e classe de perigo, se a quantidade armazenada é analisável como número, se há um limiar registado, se o veredicto de «fonte de perigo maior» concorda com a relação entre a quantidade armazenada e o limiar que o próprio registo declara, se cada substância armazenada tem número de ficha de dados de segurança, se não há números CAS repetidos, se o cabeçalho declara a base de identificação e se não resta nenhum marcador de modelo no nome.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-hazchem-check
+dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
+```
+
 ## Como é a saída
 
 ![Terminal demo of dsh-hazchem-check: real output over its HZ-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-hazchem-check/main/docs/assets/dsh-hazchem-check-hero.png)
@@ -84,13 +91,6 @@ whether it is a major hidden danger.
 ## What it does
 
 A tabela de regras, os campos e o comportamento detalhado estão em [README.md](README.md#what-it-does) (versão principal em inglês). O plugin apenas lista divergências literais frente às cláusulas citadas e indica em `skipped` cada verificação que não pôde ser executada.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-hazchem-check
-dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
-```
 
 ## Configuration
 

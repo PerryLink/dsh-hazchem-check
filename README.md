@@ -4,6 +4,13 @@
 
 `dsh-hazchem-check` reads one hazardous-chemical register with its major-hazard-source identification record — the site header plus one row per substance — and checks that register's own completeness and arithmetic: that each substance carries a name and a hazard class, that the stored quantity parses as a number, that a threshold is recorded, that the “major hazard source” verdict agrees with how the stored quantity compares with the threshold the register itself states, that a stored substance records its safety data sheet number, that no CAS number is repeated, that the header declares the identification basis, and that no template placeholder survives in the name column.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-hazchem-check
+dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
+```
+
 ## What it looks like
 
 ![Terminal demo of dsh-hazchem-check: real output over its HZ-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-hazchem-check/main/docs/assets/dsh-hazchem-check-hero.png)
@@ -96,13 +103,6 @@ applies a versioned rule pack, and returns a report.
 | `HZ-006` | a stored chemical records its SDS number | warn | principle |
 | `HZ-007` | CAS numbers are not duplicated | warn | principle |
 | `HZ-008` | the name column holds no unreplaced placeholder | warn | principle |
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-hazchem-check
-dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
-```
 
 ## Configuration
 

@@ -4,6 +4,13 @@
 
 `dsh-hazchem-check` खतरनाक रसायनों के रजिस्टर और उसके बृहत्-स्रोत (major hazard source) पहचान रिकॉर्ड को पढ़ता है — साइट हेडर और प्रत्येक रसायन की एक पंक्ति — और उसी रजिस्टर की पूर्णता तथा अंकगणित की जाँच करता है: क्या प्रत्येक रसायन का नाम और खतरा-वर्ग दर्ज है, क्या भंडारित मात्रा संख्या के रूप में पढ़ी जा सकती है, क्या सीमा-मात्रा (threshold) दर्ज है, क्या «बृहत् स्रोत» का निर्णय भंडारित मात्रा और रजिस्टर में लिखी सीमा-मात्रा के संबंध से मेल खाता है, क्या भंडारित रसायन का सुरक्षा डेटा शीट (SDS) क्रमांक दर्ज है, क्या CAS क्रमांक दोहराए नहीं गए हैं, क्या हेडर पहचान का आधार घोषित करता है, और क्या नाम-कॉलम में कोई टेम्पलेट प्लेसहोल्डर शेष नहीं है।
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-hazchem-check
+dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
+```
+
 ## आउटपुट कैसा दिखता है
 
 ![Terminal demo of dsh-hazchem-check: real output over its HZ-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-hazchem-check/main/docs/assets/dsh-hazchem-check-hero.png)
@@ -84,13 +91,6 @@ whether it is a major hidden danger.
 ## What it does
 
 नियम-सूची, फ़ील्ड और विस्तृत व्यवहार [README.md](README.md#what-it-does) (अंग्रेज़ी मुख्य संस्करण) में हैं। यह प्लगइन केवल उद्धृत धाराओं के सामने शाब्दिक अंतर सूचीबद्ध करता है और हर न चल पाई जाँच को `skipped` में बताता है।
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-hazchem-check
-dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
-```
 
 ## Configuration
 

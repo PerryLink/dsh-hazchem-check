@@ -4,6 +4,13 @@
 
 `dsh-hazchem-check` 读取一份危险化学品台账与重大危险源辨识记录——表头加每种化学品一行——核对这份台账自身的齐备与算术：化学品名称与危险性类别是否填写、储存量是否可解析为数值、是否记录了临界量、「是否重大危险源」的判定是否与台账自己写的储存量和临界量的关系相符、有储存量的是否记录了安全技术说明书编号、CAS 号是否重复、表头是否声明辨识依据、品名栏是否残留模板占位符。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-hazchem-check
+dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-hazchem-check: real output over its HZ-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-hazchem-check/main/docs/assets/dsh-hazchem-check-hero.png)
@@ -84,13 +91,6 @@ whether it is a major hidden danger.
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-hazchem-check
-dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
-```
 
 ## Configuration
 
