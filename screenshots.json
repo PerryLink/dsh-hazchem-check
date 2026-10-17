@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-hazchem-check-hero.png",
+    "kind": "hero",
+    "alt": "dsh-hazchem-check terminal output",
+    "caption": "Real dsh-hazchem-check checker output; 31 tests passed."
+  },
+  {
+    "path": "docs/assets/dsh-hazchem-check-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-hazchem-check terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]
