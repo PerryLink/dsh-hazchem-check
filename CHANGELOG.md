@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.10] - 2026-10-18
+
+### Fixed
+
+- HZ-005 now quotes the obtained GB 18218—2018 §4.2.1 instead of a placeholder: the standard defines major-hazard identification by the threshold quantity. The rule remains `derived-from-principle` because a ledger header is not itself mandated by that clause.
+
 ## [0.2.9] - 2026-10-18
 
 ### Changed

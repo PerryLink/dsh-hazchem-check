@@ -155,9 +155,9 @@ rules:
     severity: warn
     basis:
       document: 《危险化学品重大危险源辨识》
-      number: GB 18218—2018（本次未取得条文）
-      clause: 关于辨识依据的条款（本次未取得条号）
-      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      number: GB 18218—2018
+      clause: 4.2.1
+      excerpt: 生产单元、储存单元内存在危险化学品的数量等于或超过表 1、表 2 规定的临界量，即被定为重大危险源。
       kind: derived-from-principle
       source: https://gf.cabr-fire.com/m/article-27761.htm
     params:
