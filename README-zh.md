@@ -43,37 +43,20 @@ dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
 
 **边界（中文译文，以英文原文为准）：** 本插件核对一份**危险化学品台账与重大危险源辨识记录**的齐备性与算术——每种化学品是否写明自身名称与危险性类别，储存量是否可解析，是否记录临界量，**重大危险源判定结论是否与「储存量相对于台账写明的临界量」的比较结果一致**，在库化学品是否记录安全技术说明书编号，CAS 号是否不重复，台账是否声明辨识依据，以及是否残留占位符。它**不**判定某单元是否构成重大危险源、是否必须备案登记、是否需要进行安全评估，也不判定其是否属于重大隐患。
 
-> ### ⚠️ What the standard says, and the four errors this plugin cannot find
+> ### ⚠️ 标准怎么规定，以及本插件找不到的四类错误（以英文原文为准）
 >
-> **GB 18218—2018 was obtained and read verbatim** (see `rules/evidence/clause-verification-tables.md`):
-> issued **2018-11-19, in force 2019-03-01**, with the foreword stating 「**本标准的全部技术内容为强制性的**」 —
-> the whole standard is mandatory — and it **supersedes GB 18218—2009** (the 2000 and 2009 editions are both
-> withdrawn, so citing them is simply wrong). The definitions of 临界量 (3.3), 单元 (3.2) and 重大危险源 (3.4),
-> the determination rule 4.1.2, and **table 1's first 35 rows** are all quoted in that report.
+> **GB 18218—2018 已经取得并逐字阅读**（见 `rules/evidence/clause-verification-tables.md`）：**2018-11-19 发布，2019-03-01 实施**，前言写明「**本标准的全部技术内容为强制性的**」——整部标准都是强制性的——且它**取代 GB 18218—2009**（2000 年版与 2009 年版均已废止，引用它们本身就是错误的）。临界量（3.3）、单元（3.2）与重大危险源（3.4）的定义、判定规则 4.1.2，以及**表 1 的前 35 行**，都在该报告中引录。
 >
-> **Table 1 is complete only to row 35 and table 2 was not obtained**, so no threshold value is built in and none
-> can be checked. `HZ-003` compares the stored quantity against the threshold **the register itself records** and
-> checks that the verdict agrees. It therefore **cannot find four classes of error**, and its own note says so:
+> **表 1 只完整到第 35 行，表 2 本次未取得**，因此没有内置任何临界量数值，也无法核对任何数值。`HZ-003` 把储存量与**台账自身记录的**临界量相比较，并核对判定结论是否一致。因此它**找不到四类错误**，其说明也这样写明：
 >
-> 1. **A threshold taken from the wrong substance or hazard class** — 4.1.2 requires table 1 for listed
->    substances and table 2 otherwise.
-> 2. **A multi-hazard substance not given its lowest threshold** — 4.1.2 b): 「若一种危险化学品具有多种危险性，
->    按其中最低的临界量确定」. Registers carry one figure, so rounding up misses a major hazard source.
-> 3. **The multi-substance correction** — within one unit, `S = q₁/Q₁ + q₂/Q₂ + … + qₙ/Qₙ ≥ 1` also constitutes a
->    major hazard source. **This plugin does not perform that summation**, because identification works per
->    **production or storage unit** (3.2, 3.5, 3.6) while a register lists substances without unit grouping.
-> 4. **The quantity basis** — 4.2.2 requires the quantity to be taken **at the design maximum**, while a register
->    may record stock on hand.
+> 1. **临界量取自错误的物质或危险性类别**——4.1.2 要求：列名物质用表 1，其他物质用表 2。
+> 2. **具有多种危险性的物质未被取最低临界量**——4.1.2 b)：「若一种危险化学品具有多种危险性，按其中最低的临界量确定」。台账只记一个数字，因此向上取整会漏掉重大危险源。
+> 3. **多物质校正**——在同一单元内，`S = q₁/Q₁ + q₂/Q₂ + … + qₙ/Qₙ ≥ 1` 同样构成重大危险源。**本插件不进行这项求和**，因为辨识是按**生产或储存单元**（3.2、3.5、3.6）进行的，而台账列出物质时并不按单元分组。
+> 4. **数量基准**——4.2.2 要求数量**按设计最大量**取，而台账可能记录的是实际库存量。
 >
-> ⚠️ **Stay inside the standard's scope.** Clause 1 excludes **off-site transport of hazardous chemicals**
-> (rail, road, water, air, pipeline), nuclear and military facilities, mining (except processing and storage), and
-> offshore oil and gas extraction. Using this plugin on a **transport** consignment is out of scope — that is
-> governed by dangerous-goods transport rules, not by GB 18218.
+> ⚠️ **不要超出标准的适用范围。** 第 1 章排除**危险化学品的场外运输**（铁路、公路、水路、航空、管道）、核设施与军事设施、采矿（不含加工与储存），以及海上石油天然气开采。把本插件用于**运输**货物属于超出范围——那由危险货物运输规则管辖，而不是 GB 18218。
 >
-> A finding therefore means only "**the two numbers you wrote do not agree with your own verdict**". The four
-> items above need a unit-by-unit calculation under the standard, which is a safety-assessment and
-> regulator-determination task. **Every `excerpt` still says "本次未取得" and every rule stays `warn` or `info`**,
-> because what this plugin checks is a register's internal consistency, not whether a threshold value is correct.
+> 因此，一条发现只意味着“**你写的这两个数字与你自己的判定结论不一致**”。上述四项需要在标准下逐单元计算，那是安全评价与监管认定的任务。**每条 `excerpt` 仍写着“本次未取得”，每条规则也仍为 `warn` 或 `info`**，因为本插件核对的是台账的内部一致性，而不是某个临界量数值是否正确。
 
 ## Compatibility
 
