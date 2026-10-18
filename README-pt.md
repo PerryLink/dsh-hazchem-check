@@ -1,5 +1,7 @@
 # dsh-hazchem-check — Registo de produtos químicos perigosos e verificação da identificação de fontes de perigo maior
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-hazchem-check` lê um registo de produtos químicos perigosos com o seu registo de identificação de fontes de perigo maior —o cabeçalho do local mais uma linha por substância— e verifica a completude e a aritmética interna desse registo: se cada substância traz nome e classe de perigo, se a quantidade armazenada é analisável como número, se há um limiar registado, se o veredicto de «fonte de perigo maior» concorda com a relação entre a quantidade armazenada e o limiar que o próprio registo declara, se cada substância armazenada tem número de ficha de dados de segurança, se não há números CAS repetidos, se o cabeçalho declara a base de identificação e se não resta nenhum marcador de modelo no nome.

@@ -1,5 +1,7 @@
 # dsh-hazchem-check — Hazardous chemical register and major hazard source identification check
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-hazchem-check` reads one hazardous-chemical register with its major-hazard-source identification record — the site header plus one row per substance — and checks that register's own completeness and arithmetic: that each substance carries a name and a hazard class, that the stored quantity parses as a number, that a threshold is recorded, that the “major hazard source” verdict agrees with how the stored quantity compares with the threshold the register itself states, that a stored substance records its safety data sheet number, that no CAS number is repeated, that the header declares the identification basis, and that no template placeholder survives in the name column.

@@ -1,5 +1,7 @@
 # dsh-hazchem-check — 危险化学品台账与重大危险源辨识核对
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-hazchem-check` 读取一份危险化学品台账与重大危险源辨识记录——表头加每种化学品一行——核对这份台账自身的齐备与算术：化学品名称与危险性类别是否填写、储存量是否可解析为数值、是否记录了临界量、「是否重大危险源」的判定是否与台账自己写的储存量和临界量的关系相符、有储存量的是否记录了安全技术说明书编号、CAS 号是否重复、表头是否声明辨识依据、品名栏是否残留模板占位符。
