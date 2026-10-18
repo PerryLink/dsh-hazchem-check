@@ -41,13 +41,7 @@ dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
 | 《危险化学品重大危险源辨识》 | GB 18218—2018（本次未取得条文） | HZ-005 |
 | 《危险化学品安全管理条例》 | 国务院令第591号（本次未取得条文） | HZ-007 |
 
-**Boundary:** this plugin checks a **危险化学品台账与重大危险源辨识记录** for completeness and arithmetic — that
-each chemical names itself and its hazard class, that the stored quantity parses, that a threshold is recorded,
-that **the major-hazard-source verdict agrees with how the stored quantity compares to the threshold the register
-states**, that a stored chemical records its safety data sheet number, that CAS numbers are not duplicated, that
-the register declares its identification basis, and that no placeholder survives. It does **not** decide whether a
-unit constitutes a major hazard source, whether it must be registered, whether a safety assessment is required, or
-whether it is a major hidden danger.
+**边界（中文译文，以英文原文为准）：** 本插件核对一份**危险化学品台账与重大危险源辨识记录**的齐备性与算术——每种化学品是否写明自身名称与危险性类别，储存量是否可解析，是否记录临界量，**重大危险源判定结论是否与「储存量相对于台账写明的临界量」的比较结果一致**，在库化学品是否记录安全技术说明书编号，CAS 号是否不重复，台账是否声明辨识依据，以及是否残留占位符。它**不**判定某单元是否构成重大危险源、是否必须备案登记、是否需要进行安全评估，也不判定其是否属于重大隐患。
 
 > ### ⚠️ What the standard says, and the four errors this plugin cannot find
 >
