@@ -30,6 +30,35 @@ dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
 下表是示例集：第一行是详细走查，其余行是简短案例。
 
 
+#### 详细输出
+
+**工具** `hazchem_check`
+
+**输入**
+
+~~~json
+{"rows":[{"化学品名称":"甲醇","最大储存量":"满罐","计量单位":"t"}]}
+~~~
+ 
+**输出**
+
+~~~json
+{
+  "id": "dsh-hazchem-check.HZ-002.de09b5a6",
+  "ruleId": "HZ-002",
+  "severity": "warn",
+  "locator": {
+    "field": "maxStorage",
+    "row": 1
+  },
+  "found": "第 1 行「maxStorage」的值「满罐」无法解析为数字",
+  "expected": "「maxStorage」应填写数字",
+  "fix": "储存量应填写数值；本条只核对可解析性，不判断数量是否真实"
+}
+~~~
+
+*来源 `tests/fixtures/HZ-002/HZ-002-unsafe.json (cases.json expects HZ-002 count 1); run via lib/index.mjs rules/hazchem-check.yaml`*
+
 | 你会问 | 它怎么答 |
 |---|---|
 | 台账写的是「否」，但储存量超过了旁边写的临界量，能查出来吗？ | 能。`HZ-003` 拿台账自己写的两个数相比，判定与这个关系不符时逐行报出；某个单元是否真的构成重大危险源，它不作判断。 |

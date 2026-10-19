@@ -28,6 +28,35 @@ dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `hazchem_check`
+
+**Input**
+
+~~~json
+{"rows":[{"化学品名称":"甲醇","最大储存量":"满罐","计量单位":"t"}]}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-hazchem-check.HZ-002.de09b5a6",
+  "ruleId": "HZ-002",
+  "severity": "warn",
+  "locator": {
+    "field": "maxStorage",
+    "row": 1
+  },
+  "found": "第 1 行「maxStorage」的值「满罐」无法解析为数字",
+  "expected": "「maxStorage」应填写数字",
+  "fix": "储存量应填写数值；本条只核对可解析性，不判断数量是否真实"
+}
+~~~
+
+*Observed from `tests/fixtures/HZ-002/HZ-002-unsafe.json (cases.json expects HZ-002 count 1); run via lib/index.mjs rules/hazchem-check.yaml`*
+
 | You ask | What it answers |
 |---|---|
 | The register says “no”, but the stored quantity is above the threshold written beside it — is that caught? | Yes. `HZ-003` compares the two numbers the register itself carries and reports the row when the verdict disagrees with them. It does not decide whether the unit really is a major hazard source. |

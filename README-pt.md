@@ -30,6 +30,35 @@ Saída real deste plugin sobre o seu próprio fixture de teste `HZ-002` — não
 A tabela abaixo é o conjunto de exemplos: a primeira linha é o caso detalhado e as demais são casos curtos.
 
 
+#### Saída detalhada
+
+**Ferramenta** `hazchem_check`
+
+**Entrada**
+
+~~~json
+{"rows":[{"化学品名称":"甲醇","最大储存量":"满罐","计量单位":"t"}]}
+~~~
+ 
+**Saída**
+
+~~~json
+{
+  "id": "dsh-hazchem-check.HZ-002.de09b5a6",
+  "ruleId": "HZ-002",
+  "severity": "warn",
+  "locator": {
+    "field": "maxStorage",
+    "row": 1
+  },
+  "found": "第 1 行「maxStorage」的值「满罐」无法解析为数字",
+  "expected": "「maxStorage」应填写数字",
+  "fix": "储存量应填写数值；本条只核对可解析性，不判断数量是否真实"
+}
+~~~
+
+*Observado em `tests/fixtures/HZ-002/HZ-002-unsafe.json (cases.json expects HZ-002 count 1); run via lib/index.mjs rules/hazchem-check.yaml`*
+
 | Você pergunta | O que ele responde |
 |---|---|
 | O registo diz «否», mas a quantidade armazenada excede o limiar escrito ao lado — isso é detetado? | Sim. `HZ-003` compara os dois números que o próprio registo contém e assinala a linha quando o veredicto não concorda com eles. Não decide se a unidade constitui realmente uma fonte de perigo maior. |
