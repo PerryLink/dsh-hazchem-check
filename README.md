@@ -15,13 +15,17 @@ dsh --profile <name> --dump-config | grep 'dsh-hazchem-check'
 
 ## What it looks like
 
-![Terminal demo of dsh-hazchem-check: real output over its HZ-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-hazchem-check/main/docs/assets/dsh-hazchem-check-hero.png)
+![Workflow diagram for dsh-hazchem-check: document → rule pack → findings.](docs/assets/dsh-hazchem-check-flow.svg)
 
-![Animated terminal demo of dsh-hazchem-check](https://raw.githubusercontent.com/PerryLink/dsh-hazchem-check/main/docs/assets/dsh-hazchem-check-demo.gif)
+*Workflow overview: document → rule pack → findings. The examples below use the real command surface.*
 
-Real output from this plugin over its own `HZ-002` test fixture — not a mock-up. The rule pack ships no invented quotations, so a finding names both the clause it applied and the fact that the clause text was not obtained.
+
 
 ## What it answers
+
+### Examples
+
+The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
 | You ask | What it answers |
 |---|---|
