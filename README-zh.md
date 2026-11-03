@@ -1,6 +1,6 @@
 # dsh-hazchem-check — 危险化学品台账与重大危险源辨识核对
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check
