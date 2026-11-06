@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-dark.svg">
-  <img src="docs/assets/dsh-hazchem-check-flow-light.svg" width="100%" alt="dsh-hazchem-check data flow: rows[] hazardous-chemical register → hazchem_check tool → rules/hazchem-check.yaml rule pack (HZ-001..HZ-008) → issues[] + skipped[] report → reviewer verdict; config flows in via rulesFile / disabledRules / onlyRules / skipNotes / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-hazchem-check-hero-en-light.webp" width="100%" alt="dsh-hazchem-check hero: a four-row hazardous-chemical register in which ammonia at 620 t exceeds the 500 t threshold the register itself states, yet the verdict still says No; HZ-003 marks the row, and the verdict stays with the reviewer">
 </picture>
 
 # dsh-hazchem-check
@@ -43,6 +43,11 @@ It does not decide whether a unit constitutes a major hazard source, whether it 
 - **Who it is for**: safety and hazardous-chemicals managers; no command line required — hand the material over in chat.
 - **What you give it**: the source material the check works on (a table, register, or document); the original is never modified. Excel can be converted to JSON/YAML first, in chat if the platform supports it.
 - **What you get back**: a list of "which row, which column, what is missing, how to fix it"; every check that could not run is listed in `skipped` with its reason.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hazchem-check-flow-v5-light.svg" width="100%" alt="dsh-hazchem-check structure: the material channel (JSON/YAML → parseTable → rows[]) and the rule channel (rules/hazchem-check.yaml → loadRulesetFile → HZ-001..HZ-008) load in parallel and merge in runTableCheck; the report then forks into issues[] (which row, which column, what differs) and skipped[] (checks that could not run, with reasons); the verdict stays with the reviewer">
+</picture>
 
 ## Three-step setup
 

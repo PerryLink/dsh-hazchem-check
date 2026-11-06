@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-dark.svg">
-  <img src="docs/assets/dsh-hazchem-check-flow-light.svg" width="100%" alt="Flujo de datos de dsh-hazchem-check: rows[] registro de productos químicos peligrosos → herramienta hazchem_check → paquete de reglas rules/hazchem-check.yaml (HZ-001..HZ-008) → informe issues[] + skipped[] → veredicto del revisor; la configuración entra por rulesFile / disabledRules / onlyRules / skipNotes / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-hazchem-check-hero-en-light.webp" width="100%" alt="Portada de dsh-hazchem-check: un registro de cuatro filas en el que el amoníaco, con 620 t, supera el umbral de 500 t que el propio registro declara pero el veredicto sigue diciendo «No»; HZ-003 lo señala y el veredicto queda en manos del revisor">
 </picture>
 
 # dsh-hazchem-check
@@ -43,6 +43,11 @@ No decide si una unidad constituye una fuente de peligro mayor, si debe registra
 - **Para quién**: responsables de seguridad y de productos químicos peligrosos; no hace falta usar la línea de comandos, basta con entregar el material en el chat.
 - **Qué le entrega**: el material original sobre el que trabaja la comprobación (una tabla, un registro o un documento); el original nunca se modifica. Excel se puede convertir antes a JSON/YAML, incluso en el chat si la plataforma lo permite.
 - **Qué recibe**: una lista de «qué fila, qué columna, qué falta, cómo corregirlo»; cada comprobación que no pudo ejecutarse aparece en `skipped` con su motivo.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hazchem-check-flow-v5-light.svg" width="100%" alt="Estructura de dsh-hazchem-check: el canal de material (JSON/YAML → parseTable → rows[]) y el canal de reglas (rules/hazchem-check.yaml → loadRulesetFile → HZ-001..HZ-008) se cargan en paralelo y se unen en runTableCheck; el informe se divide en issues[] (qué fila, qué columna, qué difiere) y skipped[] (comprobaciones no ejecutadas y su motivo); el veredicto queda en manos del revisor">
+</picture>
 
 ## Instalación en tres pasos
 

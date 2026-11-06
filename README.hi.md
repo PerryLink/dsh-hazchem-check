@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-dark.svg">
-  <img src="docs/assets/dsh-hazchem-check-flow-light.svg" width="100%" alt="dsh-hazchem-check डेटा प्रवाह: rows[] खतरनाक रसायन रजिस्टर → hazchem_check उपकरण → rules/hazchem-check.yaml नियम-पैक (HZ-001..HZ-008) → issues[] + skipped[] रिपोर्ट → समीक्षक का निर्णय; कॉन्फ़िगरेशन rulesFile / disabledRules / onlyRules / skipNotes / timeoutMs से आता है">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-hazchem-check-hero-en-light.webp" width="100%" alt="dsh-hazchem-check हीरो चित्र: चार पंक्तियों का रासायनिक रजिस्टर, जिसमें अमोनिया 620 t उसी रजिस्टर में लिखे 500 t थ्रेशोल्ड से अधिक है, फिर भी निर्णय «नहीं» है; HZ-003 इस पंक्ति को चिह्नित करता है और निर्णय समीक्षक के पास रहता है">
 </picture>
 
 # dsh-hazchem-check
@@ -43,6 +43,11 @@ dsh plugin --profile <name> add dsh-hazchem-check
 - **किसके लिए**: सुरक्षा प्रबंधक और खतरनाक रसायन प्रबंधन कर्मी; कमांड लाइन की जानकारी आवश्यक नहीं — सामग्री चैट में सौंप दें।
 - **आप क्या देते हैं**: वह मूल सामग्री जिस पर यह जाँच चलती है (तालिका, रजिस्टर या दस्तावेज़); मूल कभी नहीं बदला जाता। Excel को पहले JSON/YAML में बदला जा सकता है, प्लेटफ़ॉर्म समर्थन दे तो चैट में भी।
 - **आपको क्या मिलता है**: «कौन-सी पंक्ति, कौन-सा कॉलम, क्या कम है, कैसे ठीक करें» की सूची; जो जाँच नहीं चल सकीं वे `skipped` में कारण सहित दिखती हैं।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hazchem-check-flow-v5-light.svg" width="100%" alt="dsh-hazchem-check संरचना: सामग्री चैनल (JSON/YAML → parseTable → rows[]) और नियम चैनल (rules/hazchem-check.yaml → loadRulesetFile → HZ-001..HZ-008) समानांतर लोड होकर runTableCheck में मिलते हैं; रिपोर्ट फिर issues[] (कौन-सी पंक्ति, कौन-सा स्तंभ, क्या अंतर) और skipped[] (न चली जाँचें और उनका कारण) में बँटती है; निर्णय समीक्षक के पास रहता है">
+</picture>
 
 ## तीन चरणों में शुरुआत
 

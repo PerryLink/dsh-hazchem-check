@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-dark.svg">
-  <img src="docs/assets/dsh-hazchem-check-flow-light.svg" width="100%" alt="dsh-hazchem-check 数据流：rows[] 危险化学品台账 → hazchem_check 工具 → rules/hazchem-check.yaml 规则包（HZ-001..HZ-008）→ issues[] + skipped[] 报告 → 审核人裁决；配置经 rulesFile · disabledRules · onlyRules · skipNotes · timeoutMs 注入">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-hazchem-check-hero-zh-light.webp" width="100%" alt="dsh-hazchem-check 配图：危险化学品台账四行中，液氨 620 t 超过台账自填的临界量 500 t 却仍写「否」，被 HZ-003 标出；下方为差异摘要与人工复核">
 </picture>
 
 # dsh-hazchem-check
@@ -43,6 +43,11 @@ dsh plugin --profile <name> add dsh-hazchem-check
 - **给谁用**：安全管理员、危险化学品管理岗；不用懂命令行，在对话里把材料交给它即可。
 - **你交什么**：这项核对用到的原始材料（表格、清单或文书）；不改原件。Excel 可先转成 JSON/YAML，对话里也能代转。
 - **它交什么**：一份「哪一行、哪一栏、差什么、怎么补」的清单；没能执行的检查逐条列入 `skipped` 并写明原因。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hazchem-check-flow-v5-light.svg" width="100%" alt="dsh-hazchem-check 结构图：材料通道（JSON/YAML → parseTable → rows[]）与规则通道（rules/hazchem-check.yaml → loadRulesetFile → HZ-001..HZ-008）并行装载，在 runTableCheck 合流执行；报告再分流为 issues[]（哪一行、哪一栏、差什么）与 skipped[]（未能执行的检查及原因）；结论留给审核人">
+</picture>
 
 ## 三步上手
 

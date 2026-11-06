@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-dark.svg">
-  <img src="docs/assets/dsh-hazchem-check-flow-light.svg" width="100%" alt="Fluxo de dados do dsh-hazchem-check: rows[] registo de produtos químicos perigosos → ferramenta hazchem_check → pacote de regras rules/hazchem-check.yaml (HZ-001..HZ-008) → relatório issues[] + skipped[] → veredicto do revisor; a configuração entra por rulesFile / disabledRules / onlyRules / skipNotes / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-hazchem-check-hero-en-light.webp" width="100%" alt="Capa do dsh-hazchem-check: um registo de quatro linhas em que o amoníaco, com 620 t, excede o limiar de 500 t declarado pelo próprio registo mas o veredicto continua «Não»; o HZ-003 assinala-o e o veredicto fica com o revisor">
 </picture>
 
 # dsh-hazchem-check
@@ -43,6 +43,11 @@ Não decide se uma unidade constitui uma fonte de perigo maior, se tem de ser re
 - **Para quem**: responsáveis de segurança e de produtos químicos perigosos; não é preciso usar a linha de comandos, basta entregar o material no chat.
 - **O que entrega**: o material original sobre o qual a verificação trabalha (uma tabela, um registo ou um documento); o original nunca é alterado. O Excel pode ser convertido antes para JSON/YAML, no próprio chat se a plataforma o permitir.
 - **O que recebe**: uma lista de «que linha, que coluna, o que falta, como corrigir»; cada verificação que não pôde ser executada aparece em `skipped` com o respetivo motivo.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hazchem-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hazchem-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-hazchem-check: o canal de material (JSON/YAML → parseTable → rows[]) e o canal de regras (rules/hazchem-check.yaml → loadRulesetFile → HZ-001..HZ-008) carregam em paralelo e convergem em runTableCheck; o relatório divide-se em issues[] (que linha, que coluna, o que difere) e skipped[] (verificações não executadas e o motivo); o veredicto fica com o revisor">
+</picture>
 
 ## Instalação em três passos
 
