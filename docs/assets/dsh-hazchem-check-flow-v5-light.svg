@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-labelledby="flowTitle flowDesc">
+<title id="flowTitle">dsh-hazchem-check structure: dual-channel merge</title>
+<desc id="flowDesc">Material channel (JSON/YAML -&gt; parseTable -&gt; rows[]) and rule channel (rules/hazchem-check.yaml -&gt; loadRulesetFile -&gt; HZ-001..HZ-008) merge into runTableCheck; the report forks into issues[] and skipped[]; the verdict stays human.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#4B67B4" stop-opacity="0.13"/><stop offset="1" stop-color="#4B67B4" stop-opacity="0"/></radialGradient>
+<marker id="arrowSub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6584"/></marker>
+<marker id="arrowAcc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4B67B4"/></marker>
+</defs>
+<style>.t{font-family:"Microsoft YaHei","Noto Sans CJK SC","Source Han Sans SC",sans-serif}.m{font-family:Consolas,"Cascadia Mono","SFMono-Regular",monospace}</style>
+<rect width="1100" height="660" fill="url(#bg)"/>
+<ellipse cx="560" cy="300" rx="430" ry="270" fill="url(#glow)"/>
+<text class="m" x="40" y="49" font-size="22" font-weight="bold" fill="#1b2135">dsh-hazchem-check</text>
+<text class="t" x="40" y="75" font-size="12.5" fill="#5b6584">材料通道 × 规则通道并行装载 → 合流执行 → issues[] 与 skipped[] 分流，结论留给审核人</text>
+<rect x="920" y="27" width="140" height="28" rx="14" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="990" y="46" font-size="12" fill="#4B67B4" text-anchor="middle">ruleset v2026.1</text>
+<text class="m" x="1060" y="76" font-size="11.5" fill="#8a93ad" text-anchor="end">8 rules · warn / info cap</text>
+<line x1="40" y1="89" x2="1060" y2="89" stroke="#d8deef" stroke-width="1"/>
+<text class="t" x="40" y="113" font-size="11.5" font-weight="bold" fill="#4B67B4" letter-spacing="1.4">材料通道</text>
+<text class="t" x="104" y="113" font-size="11.5" fill="#5b6584">只读原件，一行不改</text>
+<text class="t" x="810" y="113" font-size="11.5" font-weight="bold" fill="#4B67B4" letter-spacing="1.4">规则通道</text>
+<text class="t" x="874" y="113" font-size="11.5" fill="#5b6584">规则包是数据，不是代码</text>
+<rect x="40" y="128" width="250" height="96" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<rect x="40" y="142" width="3" height="68" rx="1.5" fill="#4B67B4" opacity="0.65"/>
+<text class="m" x="56" y="158" font-size="14" font-weight="bold" fill="#4B67B4">file | material</text>
+<text class="t" x="56" y="181" font-size="12" fill="#1b2135">JSON / YAML · 只读</text>
+<text class="t" x="56" y="202" font-size="11.5" fill="#5b6584">内联文本或绝对路径</text>
+<rect x="40" y="236" width="250" height="96" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<rect x="40" y="250" width="3" height="68" rx="1.5" fill="#4B67B4" opacity="0.65"/>
+<text class="m" x="56" y="266" font-size="14" font-weight="bold" fill="#4B67B4">parseTable</text>
+<text class="t" x="56" y="289" font-size="12" fill="#1b2135">列名别名归一</text>
+<text class="t" x="56" y="310" font-size="11.5" fill="#5b6584">rows | items | chemicals</text>
+<rect x="40" y="344" width="250" height="96" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<rect x="40" y="358" width="3" height="68" rx="1.5" fill="#4B67B4" opacity="0.65"/>
+<text class="m" x="56" y="374" font-size="14" font-weight="bold" fill="#4B67B4">rows[]</text>
+<text class="t" x="56" y="397" font-size="12" fill="#1b2135">规范化行 · 14 列别名</text>
+<text class="t" x="56" y="418" font-size="11.5" fill="#5b6584">名称 · 储存量 · 临界量 · 判定</text>
+<rect x="810" y="128" width="250" height="96" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<rect x="810" y="142" width="3" height="68" rx="1.5" fill="#4B67B4" opacity="0.65"/>
+<text class="m" x="826" y="158" font-size="14" font-weight="bold" fill="#4B67B4">rules/hazchem-check.yaml</text>
+<text class="t" x="826" y="181" font-size="12" fill="#1b2135">规则包随包发放</text>
+<text class="t" x="826" y="202" font-size="11.5" fill="#5b6584">换掉规则包即换整套检查</text>
+<rect x="810" y="236" width="250" height="96" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<rect x="810" y="250" width="3" height="68" rx="1.5" fill="#4B67B4" opacity="0.65"/>
+<text class="m" x="826" y="266" font-size="14" font-weight="bold" fill="#4B67B4">loadRulesetFile</text>
+<text class="t" x="826" y="289" font-size="12" fill="#1b2135">加载期守卫</text>
+<text class="t" x="826" y="310" font-size="11.5" fill="#5b6584">document · clause · excerpt · source</text>
+<rect x="810" y="344" width="250" height="96" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<rect x="810" y="358" width="3" height="68" rx="1.5" fill="#4B67B4" opacity="0.65"/>
+<text class="m" x="826" y="374" font-size="14" font-weight="bold" fill="#4B67B4">HZ-001 .. HZ-008</text>
+<text class="t" x="826" y="397" font-size="12" fill="#1b2135">八条规则逐行执行</text>
+<text class="t" x="826" y="418" font-size="11.5" fill="#5b6584">derived-from-principle ≤ warn</text>
+<path d="M165 224 V236" stroke="#5b6584" stroke-width="1.6" marker-end="url(#arrowSub)"/>
+<path d="M165 332 V344" stroke="#5b6584" stroke-width="1.6" marker-end="url(#arrowSub)"/>
+<path d="M935 224 V236" stroke="#5b6584" stroke-width="1.6" marker-end="url(#arrowSub)"/>
+<path d="M935 332 V344" stroke="#5b6584" stroke-width="1.6" marker-end="url(#arrowSub)"/>
+<path d="M290 392 H318" stroke="#4B67B4" stroke-width="2" marker-end="url(#arrowAcc)"/>
+<path d="M810 392 H782" stroke="#4B67B4" stroke-width="2" marker-end="url(#arrowAcc)"/>
+<rect x="318" y="104" width="464" height="352" rx="20" fill="#e8edf9" stroke="#4B67B4" stroke-opacity="0.45"/>
+<text class="m" x="336" y="133" font-size="15" font-weight="bold" fill="#4B67B4">runTableCheck</text>
+<text class="t" x="452" y="133" font-size="12.5" fill="#1b2135">检查引擎 · 逐行 × 逐规则</text>
+<text class="m" x="764" y="133" font-size="11" fill="#8a93ad" text-anchor="end">HZ-003 为核心比对</text>
+<rect x="336" y="148" width="206" height="58" rx="12" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="349" y="172" font-size="14" font-weight="bold" fill="#4B67B4">HZ-001</text>
+<text class="m" x="529" y="172" font-size="11" fill="#5b6584" text-anchor="end">presenceAny</text>
+<text class="t" x="349" y="194" font-size="13" fill="#1b2135">名称 + 危险性类别</text>
+<rect x="558" y="148" width="206" height="58" rx="12" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="571" y="172" font-size="14" font-weight="bold" fill="#4B67B4">HZ-002</text>
+<text class="m" x="751" y="172" font-size="11" fill="#5b6584" text-anchor="end">number</text>
+<text class="t" x="571" y="194" font-size="13" fill="#1b2135">储存量可解析为数值</text>
+<rect x="336" y="216" width="206" height="58" rx="12" fill="#fdf3e0" stroke="#a8610a"/>
+<text class="m" x="349" y="240" font-size="14" font-weight="bold" fill="#a8610a">HZ-003</text>
+<text class="m" x="529" y="240" font-size="11" fill="#5b6584" text-anchor="end">thresholdCompare</text>
+<text class="t" x="349" y="262" font-size="13" fill="#1b2135">储存量 × 临界量 × 判定</text>
+<rect x="558" y="216" width="206" height="58" rx="12" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="571" y="240" font-size="14" font-weight="bold" fill="#4B67B4">HZ-004</text>
+<text class="m" x="751" y="240" font-size="11" fill="#5b6584" text-anchor="end">presence</text>
+<text class="t" x="571" y="262" font-size="13" fill="#1b2135">临界量是否填写</text>
+<rect x="336" y="284" width="206" height="58" rx="12" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="349" y="308" font-size="14" font-weight="bold" fill="#4B67B4">HZ-005</text>
+<text class="m" x="529" y="308" font-size="11" fill="#5b6584" text-anchor="end">headerPresence</text>
+<text class="t" x="349" y="330" font-size="13" fill="#1b2135">表头声明辨识依据</text>
+<rect x="558" y="284" width="206" height="58" rx="12" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="571" y="308" font-size="14" font-weight="bold" fill="#4B67B4">HZ-006</text>
+<text class="m" x="751" y="308" font-size="11" fill="#5b6584" text-anchor="end">conditionalPresence</text>
+<text class="t" x="571" y="330" font-size="13" fill="#1b2135">有储存量 → SDS 编号</text>
+<rect x="336" y="352" width="206" height="58" rx="12" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="349" y="376" font-size="14" font-weight="bold" fill="#4B67B4">HZ-007</text>
+<text class="m" x="529" y="376" font-size="11" fill="#5b6584" text-anchor="end">unique</text>
+<text class="t" x="349" y="398" font-size="13" fill="#1b2135">CAS 号不重复</text>
+<rect x="558" y="352" width="206" height="58" rx="12" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="571" y="376" font-size="14" font-weight="bold" fill="#4B67B4">HZ-008</text>
+<text class="m" x="751" y="376" font-size="11" fill="#5b6584" text-anchor="end">containsAny</text>
+<text class="t" x="571" y="398" font-size="13" fill="#1b2135">品名栏占位符</text>
+<text class="t" x="336" y="437" font-size="11.5" fill="#5b6584">执行不了的规则写入 skipped 并写明原因，不静默通过</text>
+<path d="M550 456 V478" stroke="#4B67B4" stroke-width="2" marker-end="url(#arrowAcc)"/>
+<rect x="318" y="478" width="464" height="56" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="336" y="501" font-size="14" font-weight="bold" fill="#4B67B4">makeReport</text>
+<text class="m" x="430" y="501" font-size="11.5" fill="#5b6584">summary{error,warn,info} · rulesetVersion</text>
+<text class="t" x="336" y="522" font-size="11.5" fill="#1b2135">buildView · markdown + reportJson · 免责声明随行</text>
+<path d="M550 534 V543 H290 V552" fill="none" stroke="#4B67B4" stroke-width="1.8" marker-end="url(#arrowAcc)"/>
+<path d="M550 534 V543 H810 V552" fill="none" stroke="#4B67B4" stroke-width="1.8" marker-end="url(#arrowAcc)"/>
+<rect x="40" y="552" width="500" height="74" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="60" y="578" font-size="14" font-weight="bold" fill="#4B67B4">issues[]</text>
+<text class="t" x="136" y="578" font-size="13" fill="#1b2135">哪一行 · 哪一栏 · 差什么</text>
+<text class="m" x="60" y="600" font-size="11" fill="#5b6584">locator{row, column} · found / expected / basis · fix</text>
+<text class="t" x="60" y="619" font-size="11.5" fill="#5b6584">每条都带条款摘录与修复提示</text>
+<rect x="560" y="552" width="500" height="74" rx="16" fill="#ffffff" stroke="#d8deef"/>
+<text class="m" x="580" y="578" font-size="14" font-weight="bold" fill="#4B67B4">skipped[]</text>
+<text class="t" x="656" y="578" font-size="13" fill="#1b2135">没执行的检查，逐条写明原因</text>
+<text class="m" x="580" y="600" font-size="11" fill="#5b6584">rule + reason · 缺列 / 禁用 / 未选都进这里</text>
+<text class="t" x="580" y="619" font-size="11.5" fill="#a8610a">空 issues 不等于没问题</text>
+<text class="m" x="40" y="648" font-size="11.5" fill="#8a93ad">config · rulesFile · disabledRules · onlyRules · skipNotes · timeoutMs</text>
+<text class="t" x="1060" y="648" font-size="11.5" fill="#5b6584" text-anchor="end">结论留给审核人 · 措辞守卫 + 免责声明</text>
+</svg>
