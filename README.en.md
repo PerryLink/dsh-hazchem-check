@@ -118,6 +118,10 @@ Every PerryLink plugin is listed in the built-in DSH Desktop market: **Market �
 
 ### Examples
 
+![dsh-hazchem-check: real terminal run](docs/assets/dsh-hazchem-check-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
 These are the plugin's real entry points; install once, then call one. The first row of the table below is the detailed walkthrough, the remaining rows are short cases. The detailed walkthrough is this plugin's **real output** on its own `HZ-002` test fixture — not a mock-up: the rule pack never fabricates citations, so every finding names the clause it applies and states that the clause text was not obtained this pass.
 
 **Detailed example** — tool `hazchem_check`, input:

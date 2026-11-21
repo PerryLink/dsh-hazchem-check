@@ -49,6 +49,11 @@ dsh plugin --profile <name> add dsh-hazchem-check
   <img src="docs/assets/dsh-hazchem-check-flow-v5-light.svg" width="100%" alt="dsh-hazchem-check संरचना: सामग्री चैनल (JSON/YAML → parseTable → rows[]) और नियम चैनल (rules/hazchem-check.yaml → loadRulesetFile → HZ-001..HZ-008) समानांतर लोड होकर runTableCheck में मिलते हैं; रिपोर्ट फिर issues[] (कौन-सी पंक्ति, कौन-सा स्तंभ, क्या अंतर) और skipped[] (न चली जाँचें और उनका कारण) में बँटती है; निर्णय समीक्षक के पास रहता है">
 </picture>
 
+![dsh-hazchem-check का असली टर्मिनल रन](docs/assets/dsh-hazchem-check-demo.gif)
+
+*इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
+
+
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल** (कोई एक चैनल चुनें):

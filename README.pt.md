@@ -49,6 +49,11 @@ Não decide se uma unidade constitui uma fonte de perigo maior, se tem de ser re
   <img src="docs/assets/dsh-hazchem-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-hazchem-check: o canal de material (JSON/YAML → parseTable → rows[]) e o canal de regras (rules/hazchem-check.yaml → loadRulesetFile → HZ-001..HZ-008) carregam em paralelo e convergem em runTableCheck; o relatório divide-se em issues[] (que linha, que coluna, o que difere) e skipped[] (verificações não executadas e o motivo); o veredicto fica com o revisor">
 </picture>
 
+![dsh-hazchem-check: execução real de terminal](docs/assets/dsh-hazchem-check-demo.gif)
+
+*Repetição animada de uma execução real registrada neste repositório.*
+
+
 ## Instalação em três passos
 
 1. **Instalar** (escolha um canal):
