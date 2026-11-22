@@ -7,6 +7,8 @@
 
 # dsh-hazchem-check
 
+Current version `0.2.16`.
+
 **Check a hazardous-chemical register and its major-hazard-source record for completeness and threshold arithmetic — you get a list of which row, which column, and what to fix; the verdict stays with the reviewer.**
 
 A data-only checker plugin for DeepSeek Harness: it reads one hazardous-chemical register (the site header plus one row per substance), applies the versioned rule pack it ships (HZ-001..HZ-008), and lists only the differences it can point to inside the register — never a compliance verdict, never a liability finding.

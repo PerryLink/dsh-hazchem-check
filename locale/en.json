@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "Hazardous chemical threshold check",
-    "description": "危险化学品临界量与重大危险源辨识核对（按储存量与临界量核对台账自洽，仅提示差异，不作出定性结论）"
+    "description": "Check a hazardous-chemical register and its major-hazard-source record for completeness and threshold arithmetic — you get a list of which row, which column, and what to fix; the verdict stays with the reviewer."
   }
 }
